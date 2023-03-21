@@ -8,6 +8,7 @@ public class RadixTranningJavaProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RadixTranningJavaProjectApplication.class, args);
+		System.out.println("Teste Java");
 	}
 
 }
