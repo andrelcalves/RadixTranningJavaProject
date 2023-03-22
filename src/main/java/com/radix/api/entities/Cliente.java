@@ -1,7 +1,13 @@
 package com.radix.api.entities;
 
 import java.util.Date;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="cliente")
@@ -17,7 +23,7 @@ public class Cliente{
 	public Cliente() {}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -26,7 +32,7 @@ public class Cliente{
 		this.id = id;
 	}
 
-	@Column(name = "razaoSocial", nullable = false)
+	@Column(name = "razao_social", nullable = false)
 	public String getRazaoSocial() {
 		return razaoSocial;
 	}
@@ -44,7 +50,7 @@ public class Cliente{
 		this.cnpj = cnpj;
 	}
 
-	@Column(name = "dataCriacao", nullable = false)
+	@Column(name = "data_criacao", nullable = false)
 	public Date getDataCriacao() {
 		return dataCriacao;
 	}
@@ -53,7 +59,7 @@ public class Cliente{
 		this.dataCriacao = dataCriacao;
 	}
 
-	@Column(name = "dataAtualizacao", nullable = false)
+	@Column(name = "data_atualizacao", nullable = false)
 	public Date getDataAtualizacao() {
 		return dataAtualizacao;
 	}
