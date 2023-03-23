@@ -1,9 +1,11 @@
 package com.radix.api.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Endereco {
@@ -15,6 +17,7 @@ public class Endereco {
 	private String cep;
 	private String cidade;
 	private String uf;
+	private Cliente cliente;
 	
 
 	@Id
@@ -60,6 +63,16 @@ public class Endereco {
 	}
 	public void setUf(String uf) {
 		this.uf = uf;
+	}
+		
+	// EAGER para trazer o cliente sempre que eu solicitar o endereço
+	@ManyToOne(fetch = FetchType.EAGER)
+	public Cliente getCliente() {
+		return cliente;
+	}
+	
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	

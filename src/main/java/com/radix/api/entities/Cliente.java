@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
@@ -79,6 +81,18 @@ public class Cliente{
 
 	public void setEnderecos(List<Endereco> enderecos) {
 		this.enderecos = enderecos;
+	}
+	
+	@PreUpdate
+	public void preUpdate() {
+		dataAtualizacao = new Date();
+	}
+	
+	@PrePersist
+	public void prePersit() {
+		final Date atual = new Date();
+		dataCriacao = atual;
+		dataAtualizacao = atual;
 	}
 
 
